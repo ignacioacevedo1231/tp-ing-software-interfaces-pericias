@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Informes Periciales - JustiData</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ===== Encabezado ===== -->
+    <header class="app-header">
+        <div class="container">
+            <a href="index.html" class="brand">
+                <div class="brand-mark">JS</div>
+                <div class="brand-text">
+                    <div>JustiData Solutions S.A.</div>
+                    <span>Sistema de Gestión y Seguimiento de Pericias</span>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="carga-informe.html">Cargar Informe</a>
+                <a href="busqueda-informes.html" class="active">Buscar Informes</a>
+            </nav>
+
+            <div class="user-session">
+                <div class="user-avatar">GP</div>
+                <div class="user-info">
+                    <div class="user-name">Grupo de Trabajo</div>
+                    <div class="user-role">Acevedo, Fernandez, Gareis, Schazenbach</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== Contenido principal ===== -->
+    <main class="app-main">
+        <div class="container">
+
+            <div class="page-header">
+                <h1>Búsqueda de Informes Periciales</h1>
+                <p>Localice pericias e informes registrados aplicando filtros sobre organismo, número, tipo, estado y fechas.</p>
+            </div>
+
+            <div class="breadcrumbs">
+                <a href="index.html">Inicio</a>
+                <span>Búsqueda de informes</span>
+            </div>
+
+            <!-- Panel de filtros -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 style="font-size:1.125rem;font-weight:700;color:#111827;">Filtros de Búsqueda</h2>
+                </div>
+                <div class="card-body">
+                    <form novalidate class="form-grid" style="margin-bottom:1rem;">
+                        <div class="form-group">
+                            <label class="form-label" for="f-numero">Número de Pericia</label>
+                            <input class="form-control" id="f-numero" name="f-numero" type="text" placeholder="Ej. 142/2026">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="f-organismo">Organismo Solicitante</label>
+                            <input class="form-control" id="f-organismo" name="f-organismo" type="text" placeholder="Ej. Juzgado Civil">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="f-expediente">Expediente</label>
+                            <input class="form-control" id="f-expediente" name="f-expediente" type="text" placeholder="Ej. Exp. 4500-A-2026">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="f-tipo">Tipo de Pericia</label>
+                            <select class="form-control form-select" id="f-tipo" name="f-tipo">
+                                <option value="">Todos los tipos</option>
+                                <option value="medica">Pericia Médica</option>
+                                <option value="psicologica">Pericia Psicológica</option>
+                                <option value="informatica">Pericia Informática</option>
+                                <option value="contable">Pericia Contable</option>
+                                <option value="accidentologica">Pericia Accidentológica</option>
+                                <option value="documentologica">Pericia Documentológica</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="f-estado">Estado de la Pericia</label>
+                            <select class="form-control form-select" id="f-estado" name="f-estado">
+                                <option value="">Todos los estados</option>
+                                <option value="solicitada">Solicitada</option>
+                                <option value="en-analisis">En Análisis</option>
+                                <option value="en-evaluacion">En Proceso de Evaluación</option>
+                                <option value="elaboracion-informe">En Elaboración de Informe</option>
+                                <option value="finalizada">Finalizada</option>
+                                <option value="suspendida">Suspendida</option>
+                                <option value="cancelada">Cancelada</option>
+                                <option value="impugnada">Impugnada</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="f-desde">Fecha Desde</label>
+                            <input class="form-control" id="f-desde" name="f-desde" type="date">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="f-hasta">Fecha Hasta</label>
+                            <input class="form-control" id="f-hasta" name="f-hasta" type="date">
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label" for="f-persona">Persona Involucrada (perito / evaluado / testigo)</label>
+                            <input class="form-control" id="f-persona" name="f-persona" type="text" placeholder="Apellido y Nombre">
+                        </div>
+                    </form>
+
+                    <div class="form-actions" style="justify-content:space-between;align-items:center;">
+                        <button type="submit" class="btn btn-primary">
+                            <span class="icon" style="width:1rem;height:1rem;background:#fff;color:#1f3a5f;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;">🔍</span>
+                            Buscar
+                        </button>
+                        <button type="reset" class="btn btn-outline">Limpiar Filtros</button>
+                        <a href="carga-informe.html" class="btn btn-secondary">Cargar Nuevo Informe</a>
+                        <span style="font-size:0.875rem;color:#6b7280;">Se muestran resultados activos</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resultados -->
+            <div style="margin-top:1.5rem;">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;">
+                    <div>
+                        <strong>Resultados encontrados:</strong> <span style="color:#1f3a5f;font-weight:700;">12</span> pericias
+                    </div>
+                    <div class="form-actions" style="gap:0.5rem;">
+                        <a href="#" class="btn btn-outline btn-sm">Exportar a CSV</a>
+                        <a href="#" class="btn btn-secondary btn-sm">Imprimir Listado</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="width:14%;">Pericia (Org. + Nro.)</th>
+                                        <th style="width:16%;">Expediente</th>
+                                        <th style="width:15%;">Tipo de Pericia</th>
+                                        <th style="width:12%;">Estado</th>
+                                        <th style="width:13%;">Fecha Solicitud</th>
+                                        <th style="width:14%;">Área Técnica</th>
+                                        <th style="width:10%;">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <strong>Juzgado Civil</strong><br>
+                                            <span style="font-size:0.8125rem;color:#6b7280;">142/2026</span>
+                                        </td>
+                                        <td>Exp. 4500-A-2026</td>
+                                        <td><span class="badge badge-info">Informática</span></td>
+                                        <td><span class="estado-chip estado-en-analisis">En Análisis</span></td>
+                                        <td>01/10/2026</td>
+                                        <td>Peritajes Informáticos</td>
+                                        <td>
+                                            <a href="informe-pantalla.html" class="btn btn-outline btn-sm">Ver Informe</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Fiscalía Nro. 3</strong><br>
+                                            <span style="font-size:0.8125rem;color:#6b7280;">88/2026</span>
+                                        </td>
+                                        <td>Exp. 1120-B-2026</td>
+                                        <td><span class="badge badge-success">Médica</span></td>
+                                        <td><span class="estado-chip estado-en-evaluacion">En Evaluación</span></td>
+                                        <td>15/09/2026</td>
+                                        <td>Peritajes Médicos</td>
+                                        <td>
+                                            <a href="informe-pantalla.html" class="btn btn-outline btn-sm">Ver Informe</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Estudio Jurídico Pérez</strong><br>
+                                            <span style="font-size:0.8125rem;color:#6b7280;">201/2026</span>
+                                        </td>
+                                        <td>Exp. 7750-C-2026</td>
+                                        <td><span class="badge badge-primary">Contable</span></td>
+                                        <td><span class="estado-chip estado-finalizada">Finalizada</span></td>
+                                        <td>20/08/2026</td>
+                                        <td>Peritajes Contables</td>
+                                        <td>
+                                            <a href="informe-pantalla.html" class="btn btn-outline btn-sm">Ver Informe</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Juzgado de Familia</strong><br>
+                                            <span style="font-size:0.8125rem;color:#6b7280;">56/2026</span>
+                                        </td>
+                                        <td>Exp. 3300-D-2026</td>
+                                        <td><span class="badge badge-warning">Psicológica</span></td>
+                                        <td><span class="estado-chip estado-suspendida">Suspendida</span></td>
+                                        <td>10/09/2026</td>
+                                        <td>Peritajes Psicológicos</td>
+                                        <td>
+                                            <a href="informe-pantalla.html" class="btn btn-outline btn-sm">Ver Informe</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Juzgado Civil</strong><br>
+                                            <span style="font-size:0.8125rem;color:#6b7280;">190/2026</span>
+                                        </td>
+                                        <td>Exp. 6100-E-2026</td>
+                                        <td><span class="badge badge-danger">Accidentológica</span></td>
+                                        <td><span class="estado-chip estado-solicitada">Solicitada</span></td>
+                                        <td>28/10/2026</td>
+                                        <td>Peritajes Accidentológicos</td>
+                                        <td>
+                                            <a href="informe-pantalla.html" class="btn btn-outline btn-sm">Ver Informe</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Fiscalía Nro. 1</strong><br>
+                                            <span style="font-size:0.8125rem;color:#6b7280;">12/2026</span>
+                                        </td>
+                                        <td>Exp. 220-F-2026</td>
+                                        <td><span class="badge badge-info">Informática</span></td>
+                                        <td><span class="estado-chip estado-elaboracion">Elaboración de Informe</span></td>
+                                        <td>05/10/2026</td>
+                                        <td>Peritajes Informáticos</td>
+                                        <td>
+                                            <a href="informe-pantalla.html" class="btn btn-outline btn-sm">Ver Informe</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ===== Pie de página ===== -->
+    <footer style="background:#111827;color:#e5e7eb;padding:1.5rem 0;margin-top:auto;">
+        <div class="container">
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center;">
+                <div style="font-size:0.875rem;color:#9ca3af;">
+                    JustiData Solutions S.A. - Sistema de Gestión y Seguimiento de Pericias Judiciales
+                </div>
+                <div style="font-size:0.875rem;color:#9ca3af;text-align:right;">
+                    Ingeniería de Software I - Trabajo Práctico Anual 2026<br>
+                    Acevedo, Fernandez, Gareis, Schazenbach
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

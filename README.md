@@ -4,6 +4,12 @@
 Universidad Autónoma de Entre Ríos — Facultad de Ciencia y Tecnología  
 Año 2026
 
+**Integrantes del grupo (ordenados alfabéticamente por apellido y nombre):**
+- Acevedo, Ignacio
+- Fernandez, Luciano
+- Gareis, Elian
+- Schazenbach, Emir
+
 Este repositorio contiene las maquetas HTML/CSS correspondientes al **punto 6 (Diseño de interfaces)** del TP anual sobre el sistema de gestión y seguimiento de pericias judiciales para la empresa *JustiData Solutions S.A.*
 
 ## 📁 Estructura del repositorio
