@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe Pericial - Detalle - JustiData</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ===== Encabezado ===== -->
+    <header class="app-header">
+        <div class="container">
+            <a href="index.html" class="brand">
+                <div class="brand-mark">JS</div>
+                <div class="brand-text">
+                    <div>JustiData Solutions S.A.</div>
+                    <span>Sistema de Gestión y Seguimiento de Pericias</span>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="carga-informe.html">Cargar Informe</a>
+                <a href="busqueda-informes.html">Buscar Informes</a>
+            </nav>
+
+            <div class="user-session">
+                <div class="user-avatar">IA</div>
+                <div class="user-info">
+                    <div class="user-name">Ignacio Acevedo</div>
+                    <div class="user-role">Operador Administrativo</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== Contenido principal ===== -->
+    <main class="app-main">
+        <div class="container">
+
+            <div class="page-header">
+                <h1>Informe Pericial - Detalle</h1>
+                <p>Consulte el historial completo de actividades, personas involucradas y estado de la pericia.</p>
+            </div>
+
+            <div class="breadcrumbs">
+                <a href="index.html">Inicio</a>
+                <span>/</span>
+                <a href="busqueda-informes.html">Búsqueda de Informes</a>
+                <span>/</span>
+                <span>Informe Pericial 142/2026</span>
+            </div>
+
+            <div class="card" style="margin-bottom:1.5rem;">
+                <div class="card-header">
+                    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+                        <div>
+                            <h2 style="font-size:1.125rem;font-weight:700;color:#111827;display:flex;align-items:center;gap:0.5rem;">
+                                <span style="font-size:1.25rem;">📄</span>
+                                Informe Pericial Nro. 142/2026
+                            </h2>
+                            <div class="form-hint" style="margin-top:0.25rem;">Organismo: Juzgado en lo Civil y Comercial &nbsp;|&nbsp; Expediente: Exp. 4500-A-2026</div>
+                        </div>
+                        <div class="estado-chip estado-en-analisis">En Análisis</div>
+                        <div class="form-actions" style="gap:0.5rem;">
+                            <a href="busqueda-informes.html" class="btn btn-outline btn-sm">Volver al Listado</a>
+                            <button onclick="window.print()" class="btn btn-secondary btn-sm">Imprimir Informe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="detail-grid">
+                        <div class="detail-field">
+                            <span class="detail-field-label">Tipo de Pericia</span>
+                            <div class="detail-field-value"><span class="badge badge-info">Pericia Informática</span></div>
+                        </div>
+                        <div class="detail-field">
+                            <span class="detail-field-label">Área Técnica Responsable</span>
+                            <div class="detail-field-value">Peritajes Informáticos</div>
+                        </div>
+                        <div class="detail-field">
+                            <span class="detail-field-label">Fecha de Solicitud</span>
+                            <div class="detail-field-value">01/10/2026</div>
+                        </div>
+                        <div class="detail-field">
+                            <span class="detail-field-label">Descripción del Caso</span>
+                            <div class="detail-field-value multiline">Análisis forense de dispositivos informáticos incautados en el marco de la causa caratulada "Estafa Informática". Se requiere peritaje de discos duros, teléfonos móviles y documentación digital asociada.</div>
+                        </div>
+                        <div class="detail-field">
+                            <span class="detail-field-label">Estado Actual</span>
+                            <div class="detail-field-value"><span class="estado-chip estado-en-analisis">En Análisis</span></div>
+                        </div>
+                        <div class="detail-field">
+                            <span class="detail-field-label">Último Movimiento</span>
+                            <div class="detail-field-value">Asignación de peritos - 15/10/2026</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personas involucradas -->
+            <div class="card" style="margin-bottom:1.5rem;">
+                <div class="card-header">
+                    <h2 style="font-size:1.125rem;font-weight:700;color:#111827;display:flex;align-items:center;gap:0.5rem;">
+                        <span class="icon" style="width:1.125rem;height:1.125rem;color:#1f3a5f;">👥</span>
+                        Personas Involucradas
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <div class="grid">
+                        <div class="card" style="border:none;box-shadow:none;background:transparent;padding:0;">
+                            <div class="card-body">
+                                <div style="font-size:0.875rem;font-weight:700;color:#374151;text-transform:uppercase;letter-spacing:.05em;margin-bottom:0.75rem;">Peritos Responsables</div>
+                                <table style="width:100%;font-size:0.875rem;border-collapse:collapse;">
+                                    <thead>
+                                        <tr style="border-bottom:1px solid#e5e7eb;">
+                                            <th style="text-align:left;padding:0.5rem 0;">Perito</th>
+                                            <th style="text-align:left;padding:0.5rem 0;">Rol</th>
+                                            <th style="text-align:left;padding:0.5rem 0;">Especialidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="border-bottom:1px solid#e5e7eb;">
+                                            <td style="padding:0.5rem 0;">Gómez, María Elena</td>
+                                            <td style="padding:0.5rem 0;"><span class="badge badge-primary" style="font-size:0.7rem;">Perito Oficial</span></td>
+                                            <td style="padding:0.5rem 0;">Informática Forense</td>
+                                        </tr>
+                                        <tr style="border-bottom:1px solid#e5e7eb;">
+                                            <td style="padding:0.5rem 0;">Pérez, Carlos Alberto</td>
+                                            <td style="padding:0.5rem 0;"><span class="badge badge-info" style="font-size:0.7rem;">Perito de Parte</span></td>
+                                            <td style="padding:0.5rem 0;">Ciberseguridad</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="card" style="border:none;box-shadow:none;background:transparent;padding:0;">
+                            <div class="card-body">
+                                <div style="font-size:0.875rem;font-weight:700;color:#374151;text-transform:uppercase;letter-spacing:.05em;margin-bottom:0.75rem;">Persona Evaluada</div>
+                                <table style="width:100%;font-size:0.875rem;border-collapse:collapse;">
+                                    <thead>
+                                        <tr style="border-bottom:1px solid#e5e7eb;">
+                                            <th style="text-align:left;padding:0.5rem 0;">Persona</th>
+                                            <th style="text-align:left;padding:0.5rem 0;">Tipo de Evaluación</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding:0.5rem 0;">López, Juan José</td>
+                                            <td style="padding:0.5rem 0;">Peritaje psicológico pericial</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div style="margin-top:0.75rem;padding:0.75rem;background:#f9fafb;border-radius:0.5rem;border:1px solid#e5e7eb;">
+                                    <div style="font-size:0.75rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.05em;margin-bottom:0.375rem;">Resultados / Hallazgos Técnicos</div>
+                                    <div style="font-size:0.875rem;color:#1f2937;">Sujeto de evaluación en estado de nerviosismo manifiesto durante el interrogatorio. No se detectaron inconsistencias relevantes en el relato de los hechos.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="border:none;box-shadow:none;background:transparent;padding:0;">
+                            <div class="card-body">
+                                <div style="font-size:0.875rem;font-weight:700;color:#374151;text-transform:uppercase;letter-spacing:.05em;margin-bottom:0.75rem;">Testigos / Profesionales Auxiliares</div>
+                                <table style="width:100%;font-size:0.875rem;border-collapse:collapse;">
+                                    <thead>
+                                        <tr style="border-bottom:1px solid#e5e7eb;">
+                                            <th style="text-align:left;padding:0.5rem 0;">Persona</th>
+                                            <th style="text-align:left;padding:0.5rem 0;">Rol</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding:0.5rem 0;">Martínez, Sofía</td>
+                                            <td style="padding:0.5rem 0;">Testigo presencial</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Historial de movimientos / actividades -->
+            <div class="card" style="margin-bottom:1.5rem;">
+                <div class="card-header">
+                    <h2 style="font-size:1.125rem;font-weight:700;color:#111827;display:flex;align-items:center;gap:0.5rem;">
+                        <span class="icon" style="width:1.125rem;height:1.125rem;color:#1f3a5f;">🕒</span>
+                        Historial de Movimientos y Actividades
+                    </h2>
+                    <div class="form-hint" style="font-size:0.8125rem;margin-top:0.25rem;">Al primer movimiento se denomina Informe Pericial; a partir del segundo, Ampliación de Pericia.</div>
+                </div>
+                <div class="card-body">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">1</div>
+                            <div class="timeline-content">
+                                <div class="timeline-meta">
+                                    <span style="font-weight:700;color:#1f3a5f;">Informe Pericial</span>
+                                    <span>• Recepción de solicitud</span>
+                                    <span>• 01/10/2026</span>
+                                    <span>• Usuario: Ignacio Acevedo</span>
+                                </div>
+                                <div class="timeline-text">Ingreso de la solicitud de pericia informática presentada por el Juzgado en lo Civil y Comercial. Se asigna número de pericia 142/2026 y se inicia el expediente.</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">2</div>
+                            <div class="timeline-content">
+                                <div class="timeline-meta">
+                                    <span style="font-weight:700;color:#1f3a5f;">Ampliación de Pericia</span>
+                                    <span>• Asignación de peritos</span>
+                                    <span>• 15/10/2026</span>
+                                    <span>• Usuario: Ignacio Acevedo</span>
+                                </div>
+                                <div class="timeline-text">Se asignan los peritos Gómez, María Elena (perito oficial, Informática Forense) y Pérez, Carlos Alberto (perito de parte, Ciberseguridad). Se programa primera entrevista técnica.</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">3</div>
+                            <div class="timeline-content">
+                                <div class="timeline-meta">
+                                    <span style="font-weight:700;color:#1f3a5f;">Ampliación de Pericia</span>
+                                    <span>• Entrevista / evaluación</span>
+                                    <span>• 22/10/2026</span>
+                                    <span>• Usuario: M. Gómez</span>
+                                </div>
+                                <div class="timeline-text">Se realiza entrevista con la persona evaluada (López, Juan José) en dependencias del juzgado. Se recopila documentación digital y se toman declaraciones testimoniales.</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">4</div>
+                            <div class="timeline-content">
+                                <div class="timeline-meta">
+                                    <span style="font-weight:700;color:#1f3a5f;">Ampliación de Pericia</span>
+                                    <span>• Análisis de documentación</span>
+                                    <span>• 29/10/2026</span>
+                                    <span>• Usuario: C. Pérez</span>
+                                </div>
+                                <div class="timeline-text">Análisis de equipos informáticos incautados. Se extraen imágenes forenses de discos duros y se documentan hallazgos técnicos preliminares.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cambios de estado -->
+            <div class="card" style="margin-bottom:1.5rem;">
+                <div class="card-header">
+                    <h2 style="font-size:1.125rem;font-weight:700;color:#111827;display:flex;align-items:center;gap:0.5rem;">
+                        <span class="icon" style="width:1.125rem;height:1.125rem;color:#1f3a5f;">📊</span>
+                        Historial de Cambios de Estado
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <table style="width:100%;font-size:0.875rem;border-collapse:collapse;">
+                        <thead>
+                            <tr>
+                                <th style="text-align:left;padding:0.625rem 1rem;border-bottom:1px solid#e5e7eb;">Estado</th>
+                                <th style="text-align:left;padding:0.625rem 1rem;border-bottom:1px solid#e5e7eb;">Fecha</th>
+                                <th style="text-align:left;padding:0.625rem 1rem;border-bottom:1px solid#e5e7eb;">Usuario Responsable</th>
+                                <th style="text-align:left;padding:0.625rem 1rem;border-bottom:1px solid#e5e7eb;">Observación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding:0.625rem 1rem;border-bottom:1px solid#e5e7eb;"><span class="estado-chip estado-solicitada">Solicitada</span></td>
+                                <td style="padding:0.625rem 1rem;border-bottom:1px solid#e5e7eb;">01/10/2026</td>
+                                <td style="padding:0.625rem 1rem;border-bottom:1px solid#e5e7eb;">Ignacio Acevedo</td>
+                                <td style="padding:0.625rem 1rem;border-bottom:1px solid#e5e7eb;">Ingreso de solicitud de pericia.</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:0.625rem 1rem;"><span class="estado-chip estado-en-analisis">En Análisis</span></td>
+                                <td style="padding:0.625rem 1rem;">15/10/2026</td>
+                                <td style="padding:0.625rem 1rem;">Ignacio Acevedo</td>
+                                <td style="padding:0.625rem 1rem;">Asignación de peritos responsables.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Módulo de honorarios (complemento tabla de decisión) -->
+            <div class="card pago-card" style="margin-bottom:1.5rem;">
+                <div class="card-header">
+                    <h2 style="font-size:1.125rem;font-weight:700;color:#111827;display:flex;align-items:center;gap:0.5rem;">
+                        <span class="icon" style="width:1.125rem;height:1.125rem;color:#92400e;">💰</span>
+                        Honorarios y Liquidación
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+                        <div>
+                            <div class="form-hint" style="font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.75rem;color:#6b7280;">Arancel Base</div>
+                            <div class="pago-monto">$ 85.000</div>
+                        </div>
+                        <div>
+                            <div class="form-hint" style="font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.75rem;color:#6b7280;">Modalidad de Pago</div>
+                            <div class="detail-field-value">Efectivo</div>
+                        </div>
+                        <div>
+                            <div class="form-hint" style="font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.75rem;color:#6b7280;">Descuento Aplicado</div>
+                            <div class="detail-field-value" style="color:#166534;font-weight:700;">20% (efectivo)</div>
+                        </div>
+                        <div>
+                            <div class="form-hint" style="font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.75rem;color:#6b7280;">Total a Liquidar</div>
+                            <div class="pago-monto" style="color:#166534;">$ 68.000</div>
+                        </div>
+                        <div>
+                            <div class="form-hint" style="font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.75rem;color:#6b7280;">Estado de Pago</div>
+                            <div class="detail-field-value"><span class="badge badge-warning">Pendiente</span></div>
+                        </div>
+                    </div>
+                    <div class="form-hint" style="margin-top:1rem;">
+                        Si el pago no se efectúa dentro de los plazos establecidos, la pericia pasará a estado de <strong>mora</strong> y el perito quedará habilitado para iniciar juicio de ejecución de honorarios.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ===== Pie de página ===== -->
+    <footer style="background:#111827;color:#e5e7eb;padding:1.5rem 0;margin-top:auto;">
+        <div class="container">
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center;">
+                <div style="font-size:0.875rem;color:#9ca3af;">
+                    JustiData Solutions S.A. - Sistema de Gestión y Seguimiento de Pericias Judiciales
+                </div>
+                <div style="font-size:0.875rem;color:#9ca3af;text-align:right;">
+                    Ingeniería de Software I - Trabajo Práctico Anual 2026
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

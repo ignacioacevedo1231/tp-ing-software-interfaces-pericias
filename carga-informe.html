@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargar Informe Pericial - JustiData</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ===== Encabezado ===== -->
+    <header class="app-header">
+        <div class="container">
+            <a href="index.html" class="brand">
+                <div class="brand-mark">JS</div>
+                <div class="brand-text">
+                    <div>JustiData Solutions S.A.</div>
+                    <span>Sistema de Gestión y Seguimiento de Pericias</span>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="carga-informe.html" class="active">Cargar Informe</a>
+                <a href="busqueda-informes.html">Buscar Informes</a>
+            </nav>
+
+            <div class="user-session">
+                <div class="user-avatar">IA</div>
+                <div class="user-info">
+                    <div class="user-name">Ignacio Acevedo</div>
+                    <div class="user-role">Operador Administrativo</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== Contenido principal ===== -->
+    <main class="app-main">
+        <div class="container">
+
+            <div class="page-header">
+                <h1>Carga de Nuevo Informe Pericial</h1>
+                <p>Registre el primer movimiento (Informe Pericial) o una Ampliación de Pericia de una solicitud ya ingresada.</p>
+            </div>
+
+            <div class="breadcrumbs">
+                <a href="index.html">Inicio</a>
+                <span>Carga de informe</span>
+            </div>
+
+            <div class="alert alert-info">
+                <span class="icon" style="width:1.25rem;height:1.25rem;color:#1e40af;">ℹ</span>
+                <div>
+                    <div style="font-weight:700;">Identificador único de pericia</div>
+                    <div style="font-size:0.875rem;">Cada pericia se identifica por la combinación <strong>Organismo + Número de Pericia</strong>, asignada por el organismo solicitante (juzgado, fiscalía o estudio jurídico).</div>
+                </div>
+            </div>
+
+            <form novalidate>
+                <input type="hidden" name="usuario_carga" value="Ignacio Acevedo (operador administrativo)">
+
+                <!-- Sección 1: Identificación de la pericia -->
+                <div class="form-section">
+                    <div class="form-section-title">
+                        <span class="icon">📋</span>
+                        Identificación de la Pericia
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label required" for="organismo">Organismo Solicitante</label>
+                            <input class="form-control" id="organismo" name="organismo" type="text" placeholder="Ej. Juzgado en lo Civil y Comercial" required>
+                            <div class="form-hint">Juzgado, fiscalía o estudio jurídico que solicita la pericia.</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required" for="numero-pericia">Número de Pericia</label>
+                            <input class="form-control" id="numero-pericia" name="numero-pericia" type="text" placeholder="Ej. 142/2026" required>
+                            <div class="form-hint">Único dentro del organismo solicitante.</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required" for="expediente">Expediente</label>
+                            <input class="form-control" id="expediente" name="expediente" type="text" placeholder="Ej. Exp. 4500-A-2026" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required" for="fecha-solicitud">Fecha de Solicitud</label>
+                            <input class="form-control" id="fecha-solicitud" name="fecha-solicitud" type="date" required>
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label required" for="descripcion-caso">Descripción del Caso</label>
+                            <textarea class="form-control" id="descripcion-caso" name="descripcion-caso" rows="3" placeholder="Breve descripción del caso pericial..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required" for="tipo-pericia">Tipo de Pericia</label>
+                            <select class="form-control form-select" id="tipo-pericia" name="tipo-pericia" required>
+                                <option value="">Seleccione un tipo</option>
+                                <option value="medica">Pericia Médica</option>
+                                <option value="psicologica">Pericia Psicológica</option>
+                                <option value="informatica">Pericia Informática</option>
+                                <option value="contable">Pericia Contable</option>
+                                <option value="accidentologica">Pericia Accidentológica</option>
+                                <option value="documentologica">Pericia Documentológica</option>
+                            </select>
+                            <div class="form-hint">Cada tipo define el área profesional/especialidad y el arancel base.</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required" for="area-tecnica">Área Técnica Responsable</label>
+                            <input class="form-control" id="area-tecnica" name="area-tecnica" type="text" placeholder="Ej. Peritajes Informáticos" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección 2: Tipo de movimiento -->
+                <div class="form-section">
+                    <div class="form-section-title">
+                        <span class="icon">📄</span>
+                        Tipo de Movimiento / Informe
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group full">
+                            <label class="form-label required" for="tipo-movimiento">Clasificación del Movimiento</label>
+                            <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                                <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;border:1px solid#d1d5db;padding:0.625rem 1rem;border-radius:0.5rem;">
+                                    <input type="radio" name="tipo-movimiento" value="inicial" checked style="accent-color:#1f3a5f;">
+                                    <strong>Informe Pericial</strong>
+                                </label>
+                                <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;border:1px solid#d1d5db;padding:0.625rem 1rem;border-radius:0.5rem;">
+                                    <input type="radio" name="tipo-movimiento" value="ampliacion" style="accent-color:#1f3a5f;">
+                                    <strong>Ampliación de Pericia</strong>
+                                </label>
+                                <span style="font-size:0.75rem;color:#6b7280;align-self:center;margin-left:auto;">
+                                    El primer movimiento es Informe Pericial; a partir del segundo, Ampliación.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required" for="fecha-movimiento">Fecha del Movimiento</label>
+                            <input class="form-control" id="fecha-movimiento" name="fecha-movimiento" type="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required" for="tipo-actividad">Tipo de Actividad</label>
+                            <select class="form-control form-select" id="tipo-actividad" name="tipo-actividad" required>
+                                <option value="">Seleccione una actividad</option>
+                                <option value="recepcion-solicitud">Recepción de solicitud de pericia</option>
+                                <option value="asignacion-peritos">Asignación de peritos</option>
+                                <option value="entrevista">Realización de entrevistas o evaluaciones</option>
+                                <option value="analisis-documentacion">Análisis de documentación</option>
+                                <option value="pruebas-tecnicas">Realización de pruebas técnicas</option>
+                                <option value="elaboracion-informe">Elaboración del informe final</option>
+                                <option value="otro">Otra actuación</option>
+                            </select>
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label required" for="descripcion-movimiento">Descripción Detallada de la Actuación</label>
+                            <textarea class="form-control" id="descripcion-movimiento" name="descripcion-movimiento" rows="4" placeholder="Describa el contenido de la actuación técnica realizada..." required></textarea>
+                            <div class="form-hint">Este texto quedará registrado en el historial de actividades de la pericia.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección 3: Personas involucradas -->
+                <div class="form-section">
+                    <div class="form-section-title">
+                        <span class="icon">👥</span>
+                        Personas Involucradas
+                    </div>
+                    <p class="form-hint" style="margin-bottom:1rem;">Registre quienes intervienen en la pericia. Una persona se registra una vez y se asocia a la pericia con su rol correspondiente.</p>
+                    <div class="form-grid">
+                        <div class="form-group full">
+                            <label class="form-label" for="perito-responsable">Perito Responsable</label>
+                            <input class="form-control" id="perito-responsable" name="perito-responsable" type="text" placeholder="Apellido y Nombre del perito">
+                            <div class="form-hint">Rol: perito oficial / perito de oficio / perito de parte.</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="rol-perito">Rol del Perito</label>
+                            <select class="form-control form-select" id="rol-perito" name="rol-perito">
+                                <option value="">Seleccione rol</option>
+                                <option value="oficial">Perito Oficial</option>
+                                <option value="oficio">Perito de Oficio</option>
+                                <option value="parte">Perito de Parte</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="especialidad-perito">Especialidad Profesional</label>
+                            <input class="form-control" id="especialidad-perito" name="especialidad-perito" type="text" placeholder="Ej. Informática Forense">
+                            <div class="form-hint">Un perito puede tener más de una especialidad.</div>
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label" for="persona-evaluada">Persona Evaluada</label>
+                            <input class="form-control" id="persona-evaluada" name="persona-evaluada" type="text" placeholder="Apellido y Nombre de la persona evaluada">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="motivo-evaluacion">Tipo de Evaluación</label>
+                            <input class="form-control" id="motivo-evaluacion" name="motivo-evaluacion" type="text" placeholder="Ej. Evaluación psicológica pericial">
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label" for="resultados-evaluacion">Resultados / Hallazgos Técnicos</label>
+                            <textarea class="form-control" id="resultados-evaluacion" name="resultados-evaluacion" rows="3" placeholder="Breve descripción de los resultados o hallazgos técnicos..."></textarea>
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label" for="testigos">Testigos / Profesionales Auxiliares</label>
+                            <input class="form-control" id="testigos" name="testigos" type="text" placeholder="Nombres y roles de testigos o profesionales asistentes">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección 4: Estado de la pericia -->
+                <div class="form-section">
+                    <div class="form-section-title">
+                        <span class="icon">📊</span>
+                        Estado de la Pericia
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label required" for="estado-pericia">Estado Actual</label>
+                            <select class="form-control form-select" id="estado-pericia" name="estado-pericia" required>
+                                <option value="">Seleccione un estado</option>
+                                <option value="solicitada">Solicitada</option>
+                                <option value="en-analisis">En Análisis</option>
+                                <option value="en-evaluacion">En Proceso de Evaluación</option>
+                                <option value="elaboracion-informe">En Elaboración de Informe</option>
+                                <option value="finalizada">Finalizada</option>
+                                <option value="suspendida">Suspendida</option>
+                                <option value="cancelada">Cancelada</option>
+                                <option value="impugnada">Impugnada</option>
+                            </select>
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label">Observaciones del Cambio de Estado</label>
+                            <textarea class="form-control" id="observaciones-estado" name="observaciones-estado" rows="2" placeholder="Motivo del estado asignado..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Acciones -->
+                <div class="card" style="margin-top:1.5rem;">
+                    <div class="card-body">
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                <span class="icon" style="width:1rem;height:1rem;background:#fff;color:#1f3a5f;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;">✓</span>
+                                Guardar Informe
+                            </button>
+                            <button type="reset" class="btn btn-outline">Limpiar Formulario</button>
+                            <a href="busqueda-informes.html" class="btn btn-secondary">Cancelar y Volver</a>
+                        </div>
+                        <div class="form-hint" style="margin-top:1rem;">
+                            <strong>Usuario responsable de la carga:</strong> Ignacio Acevedo - Operador Administrativo.
+                            Cada movimiento registra fecha, tipo de actividad, descripción y el usuario que cargó la información.
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </main>
+
+    <!-- ===== Pie de página ===== -->
+    <footer style="background:#111827;color:#e5e7eb;padding:1.5rem 0;margin-top:auto;">
+        <div class="container">
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center;">
+                <div style="font-size:0.875rem;color:#9ca3af;">
+                    JustiData Solutions S.A. - Sistema de Gestión y Seguimiento de Pericias Judiciales
+                </div>
+                <div style="font-size:0.875rem;color:#9ca3af;text-align:right;">
+                    Ingeniería de Software I - Trabajo Práctico Anual 2026
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
